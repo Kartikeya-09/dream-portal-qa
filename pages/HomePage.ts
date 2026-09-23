@@ -25,8 +25,8 @@ export class HomePage extends BasePage {
   }
 
   async open() {
-    await this.goto('/');
-  }
+  await this.page.goto('', { waitUntil: 'commit' }); // was: await this.goto('/');
+}
 
   /** Loader must be visible first, then disappear within ~3-5s. */
   async assertLoaderAppearsThenDisappears() {

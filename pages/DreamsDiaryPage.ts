@@ -27,7 +27,7 @@ export class DreamsDiaryPage extends BasePage {
   }
 
   async open() {
-    await this.goto('/dreams-diary.html');
+    await this.goto('dreams-diary.html');
   }
 
   async rowCount(): Promise<number> {

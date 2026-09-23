@@ -12,7 +12,7 @@ import { BasePage } from './BasePage';
  */
 export class DreamsTotalPage extends BasePage {
   async open() {
-    await this.goto('/dreams-total.html');
+    await this.goto('dreams-total.html');
   }
 
   async getGoodDreams(): Promise<number> {
