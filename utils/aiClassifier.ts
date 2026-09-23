@@ -15,7 +15,10 @@ let client: OpenAI | null = null;
 
 function getClient(): OpenAI {
   if (!client) {
-    client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    client = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+      baseURL: 'https://api.groq.com/openai/v1',
+    });
   }
   return client;
 }
@@ -24,7 +27,7 @@ export async function classifyDreamSentiment(dreamName: string): Promise<'Good' 
   const openai = getClient();
 
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'openai/gpt-oss-20b',
     temperature: 0,
     messages: [
       {
