@@ -9,9 +9,12 @@ test.describe('Dream Portal - Dream Log (dreams-diary.html)', () => {
     await diaryPage.open();
   });
 
+  test('page has correct heading', async () => {
+    await expect(diaryPage.heading).toBeVisible();
+  });
+
   test('has exactly 10 dream entries', async () => {
-    const count = await diaryPage.rowCount();
-    expect(count).toBe(10);
+    await expect(diaryPage.rows).toHaveCount(10);
   });
 
   test('every dream type is either "Good" or "Bad"', async () => {

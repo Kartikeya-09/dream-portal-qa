@@ -19,11 +19,13 @@ export interface DreamRow {
 export class DreamsDiaryPage extends BasePage {
   readonly table: Locator;
   readonly rows: Locator;
+  readonly heading: Locator;
 
   constructor(page: Page) {
     super(page);
-    this.table = page.locator('table');
-    this.rows = page.locator('table tbody tr');
+    this.table = page.locator('#dreamsDiary');
+    this.rows = page.locator('#dreamsDiary tbody tr');
+    this.heading = page.getByRole('heading', { name: /dreams diary/i });  
   }
 
   async open() {
